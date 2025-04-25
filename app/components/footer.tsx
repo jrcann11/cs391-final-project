@@ -7,7 +7,7 @@ const StyledFooter = styled.div`
     display: flex;
     padding: 0 4vw;
     justify-content: center;
-    align-items: center;
+    text-align: center;
 `
 
 const StyledCredits = styled.p`

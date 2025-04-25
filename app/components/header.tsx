@@ -9,6 +9,11 @@ const StyledHeader = styled.div`
     display: flex;
     padding: 0 4vw;
     justify-content: space-between;
+    @media screen and (max-width: 750px){
+        align-items: center;
+        flex-direction: column;
+        
+    }
 `
 
 
@@ -17,17 +22,31 @@ const StyledHeading = styled.h1`
     font-size: calc(5px + 3vh);
     padding: 0 2vw;
     font-weight: bold;
-    color: #AC9D56
+    color: #AC9D56;
+    @media screen and (max-width: 750px){
+        font-size: calc(10px + 2vh);
+    }
 `
 const StyledSubHeading = styled.p`
     font-size: calc(10px + 1vh);
     padding: 0 2vw;
     font-weight: 400;
-    color: #AC9D56
+    color: #AC9D56;
+    @media screen and (max-width: 750px){
+    align-items: center;
+    flex-direction: column;
+
+}
 `
 
 const StyledLink = styled(Link)`
     text-decoration: none;
+    justify-content: center;
+    display: flex;
+    @media screen and (max-width: 750px){
+        align-items: center;
+        text-align: center;
+    }   
 `
 
 export default function Header(){

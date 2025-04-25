@@ -1,4 +1,4 @@
-// Landing Page for application 
+// Landing Page for application
 
 "use client"
 import styled from "styled-components";
@@ -6,6 +6,7 @@ import SearchButton from "@/app/components/searchButton";
 
 const StyledMain = styled.div`
     height: 86vh;
+    width: auto;
     background-color: #E7F3F3;
 `
 const MainContainer = styled.div`
@@ -13,33 +14,57 @@ const MainContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5vw;
+    padding: 0 1vw;
+    gap: 1vw;
+    @media screen and (max-width: 750px){
+        flex-direction: column;
+
+    }
 `
 const ImgDiv = styled.div`
-    width: 30vw;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 750px){
+        width: 80%;
+
+    }
 `
-const ImgFiller = styled.div`
-    background-color: #FAFEED;
-    height: 50vh;
-    width: 30vw
+const Img = styled.img`
+    height: auto;
+    width: 25vw;
+    @media screen and (max-width: 750px){
+        width: 50vw;
+
+    }
 `
 
 const TextDiv = styled.div`
-    width: 70vh;
+    width: 30%;
     color: #61ACBF;
-    gap: 1vh;
     align-items: center;
+    @media screen and (max-width: 750px){
+        width: 80%;
+    }
 `
 
 const StyledH1 = styled.h1`
     font-family: Tahoma ,serif;
-    
+    font-size: calc(10px + 3vh);
+    @media screen and (max-width: 750px){
+        text-align: center;
+    }
 `
 
 const StyledDescription = styled.p`
     font-family: "Cascadia Code",serif;
     line-height: 1.6;
     font-size: calc(3px + 2vh);
+    @media screen and (max-width: 750px){
+        font-size: calc(10px + 1vh);
+        text-align: center;
+    }
     
 `
 const SearchButtonDiv = styled.div`
@@ -53,7 +78,7 @@ export default function Home(){
       <StyledMain>
           <MainContainer>
               <ImgDiv>
-                  <ImgFiller/>
+                  <Img src="logo.png" alt="logo" />
               </ImgDiv>
               <TextDiv>
                   <StyledH1>[Project Title]</StyledH1>

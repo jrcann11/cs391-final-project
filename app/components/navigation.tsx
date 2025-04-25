@@ -5,11 +5,26 @@ import Link from "next/link"
 const StyledNav = styled.nav`
     display: flex;
     align-items: center;
+    @media screen and (max-width: 750px){
+        width: 100%;
+        justify-content: center;
+    }
 `
 
 const StyledList = styled.ul`
     display: flex;
     list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width: 750px){
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+        padding-bottom: 2vh;
+    }
+
 `
 const StyledLink = styled(Link)`
     font-family: "Cascadia Code",serif;
@@ -19,6 +34,9 @@ const StyledLink = styled(Link)`
     color: #AC9D56;
     &:visited {
         color: #AC9D56;
+    }
+    @media screen and (max-width: 750px){
+        font-size: calc(5px + 2vh);
     }
 `
 
