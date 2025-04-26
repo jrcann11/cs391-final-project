@@ -97,7 +97,7 @@ export default function Home(){
                   <Img src="logo.png" alt="logo" />
               </ImgDiv>
               <TextDiv>
-                  <StyledH1>[Project Title]</StyledH1>
+                  <StyledH1>Holiday Twins</StyledH1>
                   <StyledDescription>Find what US holidays fall on any day of the year! This Application uses the Calendarific API to search for what holidays fall on any inputted day of the year. Navigate to search to start looking!</StyledDescription>
                   <SearchButtonDiv>
                       <SearchButton/>

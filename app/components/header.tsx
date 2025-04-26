@@ -54,7 +54,7 @@ export default function Header(){
         <StyledHeader>
             <StyledLink href="/">
             <header>
-                <StyledHeading>[Project Name]</StyledHeading>
+                <StyledHeading>Holiday Twins</StyledHeading>
                 <StyledSubHeading>Find a Holiday For Any Day!</StyledSubHeading>
             </header>
             </StyledLink>
