@@ -82,7 +82,7 @@ export default function Home(){
               </ImgDiv>
               <TextDiv>
                   <StyledH1>[Project Title]</StyledH1>
-                  <StyledDescription>Find what global holidays fall on any day of the year! This Application uses the Calendarific API to search for what holidays fall on any inputted day of the year. Navigate to search to start looking!</StyledDescription>
+                  <StyledDescription>Find what US holidays fall on any day of the year! This Application uses the Calendarific API to search for what holidays fall on any inputted day of the year. Navigate to search to start looking!</StyledDescription>
                   <SearchButtonDiv>
                       <SearchButton/>
                   </SearchButtonDiv>
