@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Holiday } from "@/app/interfaces/holidays";
 import styled from "styled-components";
-import { HolidayDisplayProps } from "../HolidayDisplayProps";
+import { HolidayDisplayProps } from "../interfaces/HolidayDisplayProps";
 
 
 const StyledMain = styled.div`
