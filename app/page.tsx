@@ -1,6 +1,8 @@
 "use client"
 import styled from "styled-components";
 import SearchButton from "@/app/components/searchButton";
+import {useState} from "react";
+import {Holiday} from "@/app/interfaces/holidays";
 
 const StyledMain = styled.div`
     height: 86vh;
@@ -70,17 +72,31 @@ const SearchButtonDiv = styled.div`
     display: flex;
     justify-content: flex-end;
 `
-
 export default function Home(){
-  return(
+    // Local state to store the holidays returned by the API
+    const [holidays, setHolidays] = useState<Holiday[]>([]);
+
+    // fetchHolidays is triggered when the user submits a date via the input form
+    // It calls the API route with query parameters for month and day, and updates state with the result
+    // Completed by Jessica Cannon
+    const fetchHolidays = async (month: string, day: string) => {
+        const res = await fetch(`/api/holidays?month=${month}&day=${day}`);
+        const data = await res.json();
+        setHolidays(data.holidays || []); // Default to empty array if response is invalid or empty
+    };
+
+    // fetchHolidays can be used with the input form UI component below
+    // holidays can be used with holiday display UI component below (will delete these comments later)
+
+    return(
       <StyledMain>
           <MainContainer>
               <ImgDiv>
                   <Img src="logo.png" alt="logo" />
               </ImgDiv>
               <TextDiv>
-                  <StyledH1>[Project Title]</StyledH1>
-                  <StyledDescription>Find what global holidays fall on any day of the year! This Application uses the Calendarific API to search for what holidays fall on any inputted day of the year. Navigate to search to start looking!</StyledDescription>
+                  <StyledH1>Holiday Twins</StyledH1>
+                  <StyledDescription>Find what US holidays fall on any day of the year! This Application uses the Calendarific API to search for what holidays fall on any inputted day of the year. Navigate to search to start looking!</StyledDescription>
                   <SearchButtonDiv>
                       <SearchButton/>
                   </SearchButtonDiv>
