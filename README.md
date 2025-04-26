@@ -9,8 +9,3 @@ Link to project: ...
 ## Built with 
 * Next.js
 * React
-
-## Contributers 
-<a href="https://github.com/jrcann11/cs391-final-project/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=jrcann11/cs391-final-project" />
-</a>
