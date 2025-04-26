@@ -7,8 +7,8 @@ By: Erin Cheng, Jessica Cannon, Elva, Sophia Tang, and Alyssa Najera
 Link to project: ...
 
 ## Built with 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
+* Next.js
+* React
 
 ## Contributers 
 <a href="https://github.com/jrcann11/cs391-final-project/graphs/contributors">
