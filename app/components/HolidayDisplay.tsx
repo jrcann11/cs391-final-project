@@ -8,7 +8,7 @@ type HolidayDisplayProps = {
 };
 
 const StyledMain = styled.div`
-    min-height: 86vh;
+    width: 100%;
     background-color: #E7F3F3;
     padding: 2vh 4vw;
     display: flex;

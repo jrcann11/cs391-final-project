@@ -8,10 +8,14 @@ import HolidayDisplay from "../components/HolidayDisplay";
 import ErrorMessage from "../components/ErrorMessage"; // <-- import ErrorMessage
 
 const StyledMain = styled.div`
-    height: 86vh;
-    width: auto;
+    width: 100%;
     background-color: #E7F3F3;
-`
+    flex: 1;
+    padding: 2vh 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
 export default function Search() {
     const [holidays, setHolidays] = useState<Holiday[]>([]);

@@ -1,16 +1,30 @@
+"use client";
+
 import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import styled from "styled-components";
 
-export default function RootLayout({children,}:
-    Readonly<{children: React.ReactNode;}>) {
-  return (
-    <html lang="en">
-      <body style={{margin: 0}}>
-      <Header/>
-        <main>{children}</main>
-        <Footer/>
-      </body>
-    </html>
-  );
+const Body = styled.body`
+    background-color: #E7F3F3;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+`;
+
+const Main = styled.main`
+  flex: 1;
+`;
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+    return (
+        <html lang="en">
+        <Body>
+            <Header />
+            <Main>{children}</Main>
+            <Footer />
+        </Body>
+        </html>
+    );
 }
