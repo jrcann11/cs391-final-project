@@ -24,32 +24,40 @@ const StyledButton = styled.button`
 
 type FormProps = {
     action: (holidays: Holiday[]) => void;
+    onErrorAction: (message: string) => void;   // <-- Added this to handle errors with ErrorMessage.tsx
 };
 
-export default function Form({ action }: FormProps) {
+export default function Form({ action, onErrorAction }: FormProps) {
     const [day, setDay] = useState("");
     const [month, setMonth] = useState("");
-    const [error, setError] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError("");
+
+        // Basic validation before fetching
+        const monthNum = parseInt(month, 10);
+        const dayNum = parseInt(day, 10);
+
+        if (
+            isNaN(monthNum) || monthNum < 1 || monthNum > 12 ||
+            isNaN(dayNum) || dayNum < 1 || dayNum > 31
+        ) {
+            onErrorAction("Please enter a valid month (1–12) and day (1–31).");
+            return;
+        }
 
         try {
-            const res = await fetch(`/api/holidays?month=${month}&day=${day}`);
+            const res = await fetch(`/api/holidays?month=${monthNum}&day=${dayNum}`);
             if (!res.ok) {
-                throw new Error("Fetch error");
+                onErrorAction("Fetch error");
             }
 
             const data = await res.json();
             action(data.holidays || []);
-        } catch (err: any) {
+            onErrorAction(""); // Clear any old errors if successful
+        } catch (err: unknown) {
             console.error(err);
-            if (err.message === "Date invalid") {
-                setError("That date is invalid. Try a different one!");
-            } else {
-                setError("Something went wrong. Please try again.");
-            }
+            onErrorAction("Something went wrong. Please try again."); // Fetch failure error
         }
     };
 
@@ -73,7 +81,7 @@ export default function Form({ action }: FormProps) {
                     onChange={(e) => setDay(e.target.value)}
                 />
             </div>
-            <FormHelperText>{error}</FormHelperText>
+
             <div className="w-full flex justify-center">
                 <StyledButton type="submit">
                     <StyledP>Find Holidays!</StyledP>
