@@ -4,7 +4,7 @@ Find what US holidays fall on any day of the year! This application uses the Cal
 CS391 Final Project 
 By: Erin Cheng, Jessica Cannon, Elva Zou, Sophia Tang, and Alyssa Najera
 
-Link to project: ...
+Link to project: https://cs391-final-project-roan.vercel.app/
 
 ## Built with 
 * Next.js
