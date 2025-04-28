@@ -26,7 +26,7 @@ const StyledLink = styled(Link)`
 export default function Footer(){
     return(
         <StyledFooter>
-            <StyledCredits>All rights reserved by Erin Cheng, Jessica Cannon, Elva, Sophia Tang, and Alyssa Najera: <StyledLink href="">Credits</StyledLink> &#169;</StyledCredits>
+            <StyledCredits>All rights reserved by Erin Cheng, Jessica Cannon, Elva Zou, Sophia Tang, and Alyssa Najera: <StyledLink href="">Credits</StyledLink> &#169;</StyledCredits>
         </StyledFooter>
     )
 

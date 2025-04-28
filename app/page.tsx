@@ -1,6 +1,7 @@
 "use client"
 import styled from "styled-components";
 import SearchButton from "@/app/components/SearchButton";
+import GlobalStyle from "@/app/components/GlobalStyle";
 
 const StyledMain = styled.div`
     height: 86vh;
@@ -72,19 +73,22 @@ const SearchButtonDiv = styled.div`
 `
 export default function Home(){
     return(
-      <StyledMain>
-          <MainContainer>
-              <ImgDiv>
-                  <Img src="logo.png" alt="logo" />
-              </ImgDiv>
-              <TextDiv>
-                  <StyledH1>Holiday Twins</StyledH1>
-                  <StyledDescription>Find what US holidays fall on any day of the year! This Application uses the Calendarific API to search for what holidays fall on any inputted day of the year. Navigate to search to start looking!</StyledDescription>
-                  <SearchButtonDiv>
-                      <SearchButton/>
-                  </SearchButtonDiv>
-              </TextDiv>
-          </MainContainer>
-      </StyledMain>
+        <>
+          <GlobalStyle />
+          <StyledMain>
+              <MainContainer>
+                  <ImgDiv>
+                      <Img src="logo.png" alt="logo" />
+                  </ImgDiv>
+                  <TextDiv>
+                      <StyledH1>Holiday Twins</StyledH1>
+                      <StyledDescription>Find what US holidays fall on any day of the year! This Application uses the Calendarific API to search for what holidays fall on any inputted day of the year. Navigate to search to start looking!</StyledDescription>
+                      <SearchButtonDiv>
+                          <SearchButton/>
+                      </SearchButtonDiv>
+                  </TextDiv>
+              </MainContainer>
+          </StyledMain>
+        </>
   );
 }
