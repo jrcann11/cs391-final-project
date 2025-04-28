@@ -9,7 +9,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import GlobalStyle from "@/app/components/GlobalStyle";
 
 const StyledMain = styled.div`
-    width: 100%;
+    width: auto;
     background-color: #E7F3F3;
     flex: 1;
     padding: 2vh 4vw;
