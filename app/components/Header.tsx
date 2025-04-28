@@ -1,6 +1,6 @@
 "use client"
 import styled from "styled-components"
-import Navigation from "@/app/components/navigation";
+import Navigation from "@/app/components/Navigation";
 import Link from "next/link"
 
 const StyledHeader = styled.div`

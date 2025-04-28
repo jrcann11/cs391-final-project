@@ -8,15 +8,14 @@ import { Holiday } from "@/app/interfaces/holidays";
 export const dynamic = "force-dynamic";
 
 // Calendarific API base URL and secret API key from environment variables
-const HOLIDAY_API_KEY = process.env.HOLIDAY_API_KEY as string;
+const HOLIDAY_API_KEY = process.env.HOLIDAY_API_KEY;
 const BASE_URL = "https://calendarific.com/api/v2/holidays";
 
-export async function GET(month:string, day:string):  Promise<NextResponse> {
-    console.log("month", month, day)
-    if (!HOLIDAY_API_KEY) {
-        console.error("API key not found");
-        return NextResponse.json({ error: "API key not found" }, { status: 500 });
-    }
+export async function GET(request: Request): Promise<NextResponse> {
+    // Parse query parameters from URL (e.g., /api/holidays?month=7&day=4)
+    const { searchParams } = new URL(request.url);
+    const month = searchParams.get("month");
+    const day = searchParams.get("day");
     const year = new Date().getFullYear(); // Use the current year for lookup
 
     // Build the full API request URL with parameters
@@ -51,7 +50,6 @@ export async function GET(month:string, day:string):  Promise<NextResponse> {
 
     // Convert the Map values back to an array
     const deduplicated = Array.from(uniqueMap.values());
-
 
     // Return the filtered and deduplicated holiday list as JSON
     return NextResponse.json({ holidays: deduplicated });
