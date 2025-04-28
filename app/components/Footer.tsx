@@ -1,3 +1,6 @@
+// Purpose: Website UI styled Footer with credits to every group memeber
+// Created by: Alyssa Najera
+
 "use client"
 import styled from "styled-components"
 import Link from "next/link"
@@ -26,6 +29,7 @@ const StyledLink = styled(Link)`
 export default function Footer(){
     return(
         <StyledFooter>
+            {/* Credits to Developers !! */}
             <StyledCredits>All rights reserved by Erin Cheng, Jessica Cannon, Elva Zou, Sophia Tang, and Alyssa Najera: <StyledLink href="">Credits</StyledLink> &#169;</StyledCredits>
         </StyledFooter>
     )

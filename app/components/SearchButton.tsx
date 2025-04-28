@@ -1,3 +1,6 @@
+// Purpose: Search button on Landing Page. Used as a quick navigation to Search functionality
+// Created by: Alyssa Najera
+
 "use client"
 import styled from "styled-components";
 import Link from "next/link";
@@ -20,6 +23,7 @@ const ButtonDiv = styled.div`
 export default function SearchButton(){
     return(
         <ButtonDiv>
+            {/* Navigate to Search page --> where all the functionality is found */}
             <StyledLink href="/search">
                 To Search
             </StyledLink>

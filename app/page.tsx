@@ -1,3 +1,6 @@
+// Landing Page for application with description of what the app does and how to use it
+// Designed by: Alyssa Najera
+
 "use client"
 import styled from "styled-components";
 import SearchButton from "@/app/components/SearchButton";
@@ -74,16 +77,20 @@ const SearchButtonDiv = styled.div`
 export default function Home(){
     return(
         <>
+            {/* Ensures Scrolling */}
           <GlobalStyle />
           <StyledMain>
               <MainContainer>
                   <ImgDiv>
+                      {/* Application logo! */}
                       <Img src="logo.png" alt="logo" />
                   </ImgDiv>
                   <TextDiv>
                       <StyledH1>Holiday Twins</StyledH1>
+                      {/* Short Description of how to use */}
                       <StyledDescription>Find what US holidays fall on any day of the year! This Application uses the Calendarific API to search for what holidays fall on any inputted day of the year. Navigate to search to start looking!</StyledDescription>
                       <SearchButtonDiv>
+                          {/* Navigate to Search */}
                           <SearchButton/>
                       </SearchButtonDiv>
                   </TextDiv>

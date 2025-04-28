@@ -25,6 +25,7 @@ const StyledButton = styled.button`
     text-align: center;
     margin: 5vh 0;
     border: none;
+    cursor: pointer;
 `;
 
 // props for Form component

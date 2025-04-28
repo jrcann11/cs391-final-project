@@ -1,3 +1,6 @@
+// Purpose: Page navigation. To homepage/instructions and search section
+//Created by: Alyssa Najera
+
 "use client"
 import styled from "styled-components"
 import Link from "next/link"
@@ -44,7 +47,9 @@ export default function Navigation() {
     return(
         <StyledNav>
             <StyledList>
+                {/* Navigate to Landing Page */}
                 <li><StyledLink href={'/'}>How to Use</StyledLink></li>
+                {/* Navigate to Search*/}
                 <li><StyledLink href={'/search'}>Search</StyledLink></li>
             </StyledList>
         </StyledNav>

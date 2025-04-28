@@ -1,3 +1,6 @@
+// Purpose: Website UI styled Header including Navigation
+// Created by: Alyssa Najera
+
 "use client"
 import styled from "styled-components"
 import Navigation from "@/app/components/Navigation";
@@ -54,6 +57,7 @@ export default function Header(){
         <StyledHeader>
             <StyledLink href="/">
             <header>
+                {/* Project Title and mini description  */}
                 <StyledHeading>Holiday Twins</StyledHeading>
                 <StyledSubHeading>Find a Holiday For Any Day!</StyledSubHeading>
             </header>

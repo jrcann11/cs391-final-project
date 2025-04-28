@@ -21,6 +21,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en">
         <Body>
+            {/* Ensures header and footer are on each page */}
             <Header />
             <Main>{children}</Main>
             <Footer />
