@@ -1,8 +1,9 @@
 /* Purpose: Takes in a user-inputted month & day. If the date is valid, the date
 is submitted to the backend server. If invalid, an error message is displayed.
- Created by: Sophia Tang, Jessica Cannon
+Created by: Sophia Tang, Jessica Cannon
 */
 "use client";
+
 
 import { FormHelperText, TextField } from "@mui/material";
 import { useState } from "react";
@@ -10,7 +11,8 @@ import styled from "styled-components";
 import { Holiday } from "../interfaces/holidays";
 import React from "react";
 
-// styling for Button text
+
+// Styling for Button text
 const StyledP = styled.p`
     font-family: "Cascadia Code", serif;
     text-decoration: none;
@@ -25,27 +27,38 @@ const StyledButton = styled.button`
     text-align: center;
     margin: 5vh 0;
     border: none;
-    cursor: pointer;
+
+
+    &:hover {
+        background-color: #dcefdc; // Slightly darker on hover
+        cursor: pointer;
+    }
 `;
 
-// props for Form component
+
+// Props for Form component
 type FormProps = {
     action: (holidays: Holiday[]) => void;
-    onErrorAction: (message: string) => void;   // <-- Added this to handle errors with ErrorMessage.tsx
+    onErrorAction: (message: string) => void; // Handles errors with ErrorMessage.tsx
+    loadingAction: (loading: boolean) => void; // Handles loading status
 };
 
-export default function Form({ action, onErrorAction }: FormProps) {
-    // user-inputted day & month
+
+export default function Form({ action, onErrorAction, loadingAction }: FormProps) {
+    // User-inputted day & month
     const [day, setDay] = useState("");
     const [month, setMonth] = useState("");
 
-    // when button submitted, event formed
+
+    // When button submitted, event formed
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
 
         // Basic validation before fetching
         const monthNum = parseInt(month, 10);
         const dayNum = parseInt(day, 10);
+
 
         if ( // if month & day are invalid, return an error
             isNaN(monthNum) || monthNum < 1 || monthNum > 12 ||
@@ -68,8 +81,10 @@ export default function Form({ action, onErrorAction }: FormProps) {
             return;
         }
 
+
         // if valid, send request with month & date to backend server
         try {
+            loadingAction(true); // Start loading
             const res = await fetch(`/api/holidays?month=${monthNum}&day=${dayNum}`);
             if (!res.ok) {
                 onErrorAction("Fetch error");
@@ -81,15 +96,17 @@ export default function Form({ action, onErrorAction }: FormProps) {
             // log unknown errors
             console.error(err);
             onErrorAction("Something went wrong. Please try again."); // Fetch failure error
+        } finally {
+            loadingAction(false); // Stop loading
         }
     };
-    // returns form UI component, with submission fields & labels & the find holidays button
+    // Returns form UI component, with submission fields & labels & the find holidays button
     return (
         <form className="w-6/7 rounded-xl p-4" onSubmit={handleSubmit}>
             <FormHelperText
                 sx={{ textAlign: "center", fontFamily: "Cascadia Code, serif",
-                color: "#AC9D56", fontSize: "calc(5px + 2vh)" }}
-                >Month</FormHelperText>
+                    color: "#AC9D56", fontSize: "calc(5px + 2vh)" }}
+            >Month</FormHelperText>
             <TextField
                 variant="filled"
                 sx={{ backgroundColor: "white", width: "100%" }}
@@ -100,8 +117,8 @@ export default function Form({ action, onErrorAction }: FormProps) {
             <div className="flex m-4">
                 <FormHelperText
                     sx={{ textAlign: "center", fontFamily: "Cascadia Code, serif",
-                    color: "#AC9D56", fontSize: "calc(5px + 2vh)" }}
-                    >Day</FormHelperText>
+                        color: "#AC9D56", fontSize: "calc(5px + 2vh)" }}
+                >Day</FormHelperText>
                 <TextField
                     variant="filled"
                     sx={{ backgroundColor: "white", width: "100%" }}
@@ -111,6 +128,7 @@ export default function Form({ action, onErrorAction }: FormProps) {
                 />
             </div>
 
+
             <div className="w-full flex justify-center">
                 <StyledButton type="submit">
                     <StyledP>Find Holidays!</StyledP>
@@ -119,3 +137,4 @@ export default function Form({ action, onErrorAction }: FormProps) {
         </form>
     );
 }
+

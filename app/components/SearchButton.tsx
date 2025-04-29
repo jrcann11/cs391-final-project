@@ -17,7 +17,12 @@ const ButtonDiv = styled.div`
     padding: 2vh;
     width: 20vh;
     text-align: center;
-    margin: 5vh 0; 
+    margin: 5vh 0;
+    &:hover {
+        background-color: #dcefdc;
+        cursor: pointer;
+    }
+
 `
 
 export default function SearchButton(){

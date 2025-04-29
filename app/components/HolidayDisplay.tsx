@@ -9,6 +9,7 @@ import styled from "styled-components";
 
 type HolidayDisplayProps = {
     holidays: Holiday[];
+    hasSearched: boolean;
 };
 
 // Styled container for the main display area
@@ -75,16 +76,21 @@ const HolidayType = styled.p`
 // Main component that displays a list of holidays
 
 
-export default function HolidayDisplay({ holidays }: HolidayDisplayProps) {
+export default function HolidayDisplay({ holidays, hasSearched }: HolidayDisplayProps) {
     // If there are no holidays, display a "No holidays found" message
 
-    if (holidays.length === 0) {
+    if (hasSearched && holidays.length === 0) {
         return (
             <StyledMain>
                 <StyledH1>No holidays found. Search above!</StyledH1>
             </StyledMain>
         );
     }
+
+    if (holidays.length === 0) {
+        return null;
+    }
+
     // Otherwise, display the list of holidays
     return (
         <StyledMain>
