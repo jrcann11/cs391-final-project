@@ -1,5 +1,5 @@
 // Purpose: Defines the basic page structure shared across the entire holiday app.
-// Created by: Jessica Cannon, Alyssa Najera
+// Created by: Jessica Cannon
 "use client";
 
 

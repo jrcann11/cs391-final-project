@@ -1,4 +1,4 @@
-// Purpose: Website UI styled Footer with credits to every group memeber
+// Purpose: Website UI styled Footer with credits to every group member
 // Created by: Alyssa Najera
 
 "use client"

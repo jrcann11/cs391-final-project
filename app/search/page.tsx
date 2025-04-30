@@ -2,7 +2,7 @@
  It uses a form to gather input, displays loading status while fetching, shows error messages
  if needed, and displays holidays after search using multiple of our components. This page
  combines these components and helps display them all nicely for the user to use.
-Created by: Jessica Cannon, Alyssa Najera
+Created by: Jessica Cannon
 */
 
 
@@ -16,6 +16,7 @@ import { useState } from "react";
 import HolidayDisplay from "../components/HolidayDisplay";
 import ErrorMessage from "../components/ErrorMessage";
 import GlobalStyle from "@/app/components/GlobalStyle";
+import Loading from "../components/Loading";
 
 
 // Styled container for the whole page content
@@ -28,16 +29,6 @@ const StyledMain = styled.div`
     flex-direction: column;
     align-items: center;
 `;
-
-
-// Styled "Loading..." message while fetching data
-const StyledLoading = styled.h2`
-   font-family: "Cascadia Code", serif;
-   color: #61ACBF;
-   font-size: calc(10px + 3vh);
-   text-align: center;
-`;
-
 
 export default function Search() {
     const [holidays, setHolidays] = useState<Holiday[]>([]); // State to hold retrieved holidays
@@ -79,7 +70,7 @@ export default function Search() {
                 {/* Section below form: Shows "Loading..." or the holiday results (if any) */}
                 <div className="mt-6">
                     {loading ? (
-                        <StyledLoading>Loading...</StyledLoading>
+                        <Loading />
                     ) : (
                         <HolidayDisplay holidays={holidays} hasSearched={hasSearched} />
                     )}

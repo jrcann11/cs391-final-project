@@ -1,6 +1,6 @@
 /* Purpose: Takes in a user-inputted month & day. If the date is valid, the date
 is submitted to the backend server. If invalid, an error message is displayed.
-Created by: Sophia Tang, Jessica Cannon
+Created by: Sophia Tang
 */
 "use client";
 
@@ -54,33 +54,33 @@ export default function Form({ action, onErrorAction, loadingAction }: FormProps
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-
-        // Basic validation before fetching
-        const monthNum = parseInt(month, 10);
-        const dayNum = parseInt(day, 10);
-
-
-        if ( // if month & day are invalid, return an error
-            isNaN(monthNum) || monthNum < 1 || monthNum > 12 ||
-            isNaN(dayNum) || dayNum < 1 || dayNum > 31
-        ) {
+        // Check if input is entirely numeric
+        if (!/^\d+$/.test(month) || !/^\d+$/.test(day)) {
             onErrorAction("Please enter a valid month (1–12) and day (1–31).");
             return;
         }
-        else if ( // if day = 31 and month has less than 31 days, return an error
-            (monthNum %2 == 0 && monthNum < 7 && dayNum > 30) ||
-            (monthNum %2 == 1 && monthNum > 8 && dayNum > 30)
-        )
-        {
-            onErrorAction("Please enter a valid day (1–30).");
-            return;
-        }
-        else if (monthNum == 2 && dayNum > 28) {
-            // limited days in February, return an error
-            onErrorAction("Please enter a valid day (1–28).");
+
+        const monthNum = parseInt(month, 10);
+        const dayNum = parseInt(day, 10);
+
+        // Check if month and day are within expected numeric ranges
+        if (monthNum < 1 || monthNum > 12 || dayNum < 1 || dayNum > 31) {
+            onErrorAction("Please enter a valid month (1–12) and day (1–31).");
             return;
         }
 
+        // Month-specific day limit checks
+        if (
+            (monthNum === 4 || monthNum === 6 || monthNum === 9 || monthNum === 11) && dayNum > 30
+        ) {
+            onErrorAction("Selected month only has 30 days.");
+            return;
+        }
+
+        if (monthNum === 2 && dayNum > 28) {
+            onErrorAction("February only has 28 days.");
+            return;
+        }
 
         // if valid, send request with month & date to backend server
         try {
